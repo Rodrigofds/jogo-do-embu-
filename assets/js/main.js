@@ -45,6 +45,13 @@ function iniciarJogo(){
     if(imbua[0].y > 15 * box && direction == "down") imbua[0].y = 0;
     if(imbua[0].y < 0 && direction == "up") imbua[0].y = 16 * box;
 
+    for(i = 1; i < imbua.length; i++){
+        if(imbua[0].x == imbua[i].x && imbua[0].y == imbua[i].y){
+            clearInterval(jogo);
+            alert('Fim de Jogo!');
+        }
+    }
+
     criarBG();
     criarImbua();
     criarComida();
