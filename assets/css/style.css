@@ -1,9 +1,14 @@
 body{
-
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .titulo{
     font-family: Arial Black;
     font-size: 30px;
-    color: brown;
+    color: rgb(94, 18, 18);
 }
