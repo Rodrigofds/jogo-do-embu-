@@ -21,7 +21,21 @@ function criarImbua(){
     }
 }
 
+document.addEventListener('keydown', update);
+
+function update(event){
+    if(event.keyCode == 37 && direction != "right") direction = "left";
+    if(event.keyCode == 38 && direction != "down") direction = "up";
+    if(event.keyCode == 39 && direction != "left") direction = "right";
+    if(event.keyCode == 40 && direction != "up") direction = "down";
+}
+
 function iniciarJogo(){
+    if(imbua[0].x > 15 * box && direction == "right") imbua[0].x = 0;
+    if(imbua[0].x < 0 && direction == "left") imbua[0].x = 16 * box;
+    if(imbua[0].y > 15 * box && direction == "down") imbua[0].y = 0;
+    if(imbua[0].y < 0 && direction == "up") imbua[0].y = 16 * box;
+
     criarBG();
     criarImbua();
 
@@ -41,7 +55,7 @@ function iniciarJogo(){
     }
 
     imbua.unshift(newHead);
-    
+
 }
 
 let jogo = setInterval(iniciarJogo, 100);
