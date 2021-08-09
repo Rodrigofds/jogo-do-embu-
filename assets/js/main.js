@@ -8,6 +8,10 @@ imbua[0] = {
 }
 
 let direction = "right";
+let comida = {
+    x: Math.floor(Math.random() * 15 + 1)* box,
+    y: Math.floor(Math.random() * 15 + 1)* box
+}
 
 function criarBG(){
     context.fillStyle = "lightgreen";
@@ -19,6 +23,11 @@ function criarImbua(){
         context.fillStyle = "brown";
         context.fillRect(imbua[i].x, imbua[i].y, box, box);
     }
+}
+
+function criarComida(){
+    context.fillStyle = "red";
+    context.fillRect(comida.x, comida.y, box, box);
 }
 
 document.addEventListener('keydown', update);
@@ -38,6 +47,7 @@ function iniciarJogo(){
 
     criarBG();
     criarImbua();
+    criarComida();
 
     let imbuaX = imbua[0].x;
     let imbuaY = imbua[0].y;
