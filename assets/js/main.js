@@ -57,7 +57,12 @@ function iniciarJogo(){
     if(direction == "up") imbuaY -= box;
     if(direction == "down") imbuaY += box;
 
-    imbua.pop();
+    if(imbuaX != comida.x || imbuaY != comida.y){
+        imbua.pop();
+    }else{
+        comida.x = Math.floor(Math.random() * 15 + 1)* box;
+        comida.y = Math.floor(Math.random() * 15 + 1)* box;
+    }
 
     let newHead = {
         x: imbuaX,
